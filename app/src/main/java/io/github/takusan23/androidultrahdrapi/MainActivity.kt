@@ -73,6 +73,32 @@ fun HomeScreen() {
             // 選んだ写真の bitmap を取得
             originalBitmap.value = context.contentResolver.openInputStream(uri).use { inputStream ->
                 BitmapFactory.decodeStream(inputStream)
+            }.apply {
+
+                // gainmap?.also {
+                //     println("displayRatioForFullHdr = ${it.displayRatioForFullHdr}")
+                //     println("epsilonHdr = ${it.epsilonHdr.toList()}")
+                //     println("epsilonSdr = ${it.epsilonSdr.toList()}")
+                //     println("gamma = ${it.gamma.toList()}")
+                //     println("minDisplayRatioForHdrTransition = ${it.minDisplayRatioForHdrTransition}")
+                //     println("ratioMax = ${it.ratioMax.toList()}")
+                //     println("ratioMin = ${it.ratioMin.toList()}")
+                // }
+
+
+                // 今明るい部分の調整
+                // val (r, g, b) = gainmap?.ratioMax?.map { it } ?: listOf(1f, 1f, 1f)
+                // gainmap?.setRatioMax(r, g, b)
+
+                // 暗い部分の調整
+                // 高くする全体的に HDR が適用される
+                // gainmap?.setRatioMin(10f, 10f, 10f)
+
+                // ピクセルを走査し、HDR を適用すべきかのしきい値。この値を上回ると確実に HDR になる
+                // gainmap?.displayRatioForFullHdr = 1f
+
+                // ピクセルを走査し、HDR を適用すべきかのしきい値。これを下回ると SDR になる
+                // gainmap?.minDisplayRatioForHdrTransition = 1f
             }
 
             // ゲインマップを可視化しない場合
