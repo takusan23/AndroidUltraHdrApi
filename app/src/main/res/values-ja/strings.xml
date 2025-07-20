@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidUltraHdrApi</string>
+    <string name="enable_ultra_hdr">Ultra HDR を有効にする</string>
+    <string name="not_ultra_hdr_image">Ultra HDR 画像ではありません</string>
+    <string name="visualize_gainmap">ゲインマップを可視化する</string>
+    <string name="select_image">画像を選ぶ</string>
+</resources>

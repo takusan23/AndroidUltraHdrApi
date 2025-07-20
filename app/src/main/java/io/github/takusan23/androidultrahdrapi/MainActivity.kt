@@ -74,31 +74,7 @@ fun HomeScreen() {
             originalBitmap.value = context.contentResolver.openInputStream(uri).use { inputStream ->
                 BitmapFactory.decodeStream(inputStream)
             }.apply {
-
-                // gainmap?.also {
-                //     println("displayRatioForFullHdr = ${it.displayRatioForFullHdr}")
-                //     println("epsilonHdr = ${it.epsilonHdr.toList()}")
-                //     println("epsilonSdr = ${it.epsilonSdr.toList()}")
-                //     println("gamma = ${it.gamma.toList()}")
-                //     println("minDisplayRatioForHdrTransition = ${it.minDisplayRatioForHdrTransition}")
-                //     println("ratioMax = ${it.ratioMax.toList()}")
-                //     println("ratioMin = ${it.ratioMin.toList()}")
-                // }
-
-
-                // 今明るい部分の調整
-                // val (r, g, b) = gainmap?.ratioMax?.map { it } ?: listOf(1f, 1f, 1f)
-                // gainmap?.setRatioMax(r, g, b)
-
-                // 暗い部分の調整
-                // 高くする全体的に HDR が適用される
-                // gainmap?.setRatioMin(10f, 10f, 10f)
-
-                // ピクセルを走査し、HDR を適用すべきかのしきい値。この値を上回ると確実に HDR になる
-                // gainmap?.displayRatioForFullHdr = 1f
-
-                // ピクセルを走査し、HDR を適用すべきかのしきい値。これを下回ると SDR になる
-                // gainmap?.minDisplayRatioForHdrTransition = 1f
+                // Commented out gainmap related code as it was commented in original snippet
             }
 
             // ゲインマップを可視化しない場合
@@ -155,7 +131,7 @@ fun HomeScreen() {
             // Ultra HDR の表示をするか、Ultra HDR 画像のみ
             if (originalBitmap.value?.hasGainmap() == true) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "Ultra HDR を有効にする")
+                    Text(text = stringResource(id = R.string.enable_ultra_hdr))
                     Switch(
                         checked = isEnableUltraHdr.value,
                         onCheckedChange = { isEnable ->
@@ -170,13 +146,13 @@ fun HomeScreen() {
                     )
                 }
             } else {
-                Text(text = "Ultra HDR 画像ではありません")
+                Text(text = stringResource(id = R.string.not_ultra_hdr_image))
             }
 
             // ゲインマップだけ表示
             if (originalBitmap.value?.hasGainmap() == true) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "ゲインマップを可視化する")
+                    Text(text = stringResource(id = R.string.visualize_gainmap))
                     Switch(
                         checked = isVisibleVisualGainmap.value,
                         onCheckedChange = { isEnable ->
@@ -186,13 +162,13 @@ fun HomeScreen() {
                     )
                 }
             } else {
-                Text(text = "Ultra HDR 画像ではありません")
+                Text(text = stringResource(id = R.string.not_ultra_hdr_image))
             }
 
             // 選ぶ
             Button(onClick = {
                 photoPicker.launch(PickVisualMediaRequest(mediaType = ActivityResultContracts.PickVisualMedia.ImageOnly))
-            }) { Text(text = "画像を選ぶ") }
+            }) { Text(text = stringResource(id = R.string.select_image)) }
 
         }
     }

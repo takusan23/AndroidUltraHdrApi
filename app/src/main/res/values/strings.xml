@@ -1,3 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AndroidUltraHdrApi</string>
+    <string name="enable_ultra_hdr">Enable Ultra HDR</string>
+    <string name="not_ultra_hdr_image">Not an Ultra HDR image</string>
+    <string name="visualize_gainmap">Visualize Gainmap</string>
+    <string name="select_image">Select Image</string>
 </resources>
