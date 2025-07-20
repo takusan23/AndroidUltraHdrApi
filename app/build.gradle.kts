@@ -1,16 +1,17 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose") version "2.1.21"
 }
 
 android {
     namespace = "io.github.takusan23.androidultrahdrapi"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "io.github.takusan23.androidultrahdrapi"
         minSdk = 34
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -48,10 +49,10 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.activity:activity-compose:1.8.2")
-    val composeBom = platform("androidx.compose:compose-bom:2023.10.01")
+    implementation("androidx.core:core-ktx:1.16.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.2")
+    implementation("androidx.activity:activity-compose:1.10.1")
+    val composeBom = platform("androidx.compose:compose-bom:2025.06.01")
     implementation(composeBom)
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
@@ -63,4 +64,5 @@ dependencies {
     androidTestImplementation(composeBom)
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")}
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+}
